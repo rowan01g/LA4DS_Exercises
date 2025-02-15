@@ -2,11 +2,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import math
 
-arr = np.array([[1,2,3,4,5],
-                [6,7,8,9,10]])
-
-print('2nd element on 1st row: ', arr[1, 1])
-
 #The array, elemnt list for mathematical manipluation and sum of squared elements
 x = np.array([[1,2], [3, 4]])
 elements_list = []
