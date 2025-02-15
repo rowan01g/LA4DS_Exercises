@@ -20,7 +20,7 @@ print(f'The elements of the array have been converted to Python scalars and inse
 for e in elements_list: 
     sum += e**2
 print(f'The sum of all the elements within the array is: {sum}')
-print(f'The Euclidean norm of the array is: {math.sqrt(sum)}')
+print(f'The Euclidean norm of the array is: {math.sqrt(sum)} calculated by manual iteration and operations on the elements')
 
-
+print(f'The function used to calculate the Euclidean norm is np.linalg.norm and for the array x, it has retuned: {np.linalg.norm(x)}')
 
