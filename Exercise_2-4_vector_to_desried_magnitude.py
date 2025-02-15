@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt 
 import numpy as np 
 
-# any nonunit vector has an unit vector associated unit vector. A unit vector has a geometric length (magnitude) of 1 - if associated with a nonunit vecotr, it will be in the same direction
+#fisrt calculate the unit vector and then scalar multiply this by desired magnitude from user input 
 
 def create_unit_vector(v):
     v_norm = np.linalg.norm(v)
