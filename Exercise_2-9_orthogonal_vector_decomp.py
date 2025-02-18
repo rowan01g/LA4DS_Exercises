@@ -2,8 +2,8 @@
 import numpy as np 
 import matplotlib.pyplot as plt
 
-v = np.array([2,4])
-w = np.array([2,1])
+v = np.random.randn(2)
+w = np.random.randn(2)
 
 #calulate the euclidean norm of the vetors to obtain the magnitude
 v_norm = np.linalg.norm(v)
@@ -34,14 +34,15 @@ a3 = plt.arrow(0, 0, para[0], para[1], head_width=.15,width=.05,color='r',length
 #vector perpendicular to reference vector 
 a4 = plt.arrow(0, 0, perp[0], perp[1], head_width=.15,width=.05,color='b',length_includes_head=True)
 
-plt.plot([b[0],beta*b[0]],[b[1],beta*a[1]],linewidth=.5,color='0.5', linestyle = '--')
+#dashed projection lines
+plt.plot([b[0],para[0]],[b[1],para[1]],linewidth=.5,color='0.5', linestyle = '--')
+plt.plot([perp[0], b[0]],[perp[1], b[1]], linewidth=.5,color='0.5', linestyle = '--')
 
 
 
 plt.grid(linestyle='--', linewidth= 0.5)
 plt.axis('square')
-plt.axis([-2,6,-2,6])
-
+plt.axis('equal')
 
 plt.show()
 # %%
