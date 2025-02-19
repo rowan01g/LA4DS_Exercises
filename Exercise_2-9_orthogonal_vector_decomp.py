@@ -24,7 +24,7 @@ para = a*beta
 #calculate vector perpendicular to reference vector. perpendicular vector = target vector - parallel vector
 perp = b - para
 
-
+# plot vector arrows
 a1 = plt.arrow(0, 0, a[0], a[1], color='k',length_includes_head=True, head_width = .02*np.diff(plt.xlim())[0], width = .01*np.diff(plt.xlim())[0])
 a2 = plt.arrow(0, 0, b[0], b[1] ,color='k',length_includes_head=True, head_width = .02*np.diff(plt.xlim())[0], width = .01*np.diff(plt.xlim())[0])
 #vector parallel to reference vector, scaled by beta
@@ -35,8 +35,6 @@ a4 = plt.arrow(0, 0, perp[0], perp[1], color='b',length_includes_head=True, head
 #dashed projection lines
 plt.plot([b[0],para[0]],[b[1],para[1]],linewidth=.5,color='0.5', linestyle = '--')
 plt.plot([perp[0], b[0]],[perp[1], b[1]], linewidth=.5,color='0.5', linestyle = '--')
-
-
 
 plt.grid(linestyle='--', linewidth= 0.5)
 plt.axis('square')
