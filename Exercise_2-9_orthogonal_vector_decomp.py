@@ -27,12 +27,12 @@ para = a*beta
 perp = b - para
 
 
-a1 = plt.arrow(0, 0, a[0], a[1], head_width=.15,width=.05,color='k',length_includes_head=True)
-a2 = plt.arrow(0, 0, b[0], b[1], head_width=.15,width=.05,color='k',length_includes_head=True)
+a1 = plt.arrow(0, 0, a[0], a[1], color='k',length_includes_head=True, head_width = .02*np.diff(plt.xlim())[0], width = .01*np.diff(plt.xlim())[0])
+a2 = plt.arrow(0, 0, b[0], b[1] ,color='k',length_includes_head=True, head_width = .02*np.diff(plt.xlim())[0], width = .01*np.diff(plt.xlim())[0])
 #vector parallel to reference vector, scaled by beta
-a3 = plt.arrow(0, 0, para[0], para[1], head_width=.15,width=.05,color='r',length_includes_head=True)
+a3 = plt.arrow(0, 0, para[0], para[1],color='r',length_includes_head=True, head_width = .02*np.diff(plt.xlim())[0], width = .01*np.diff(plt.xlim())[0])
 #vector perpendicular to reference vector 
-a4 = plt.arrow(0, 0, perp[0], perp[1], head_width=.15,width=.05,color='b',length_includes_head=True)
+a4 = plt.arrow(0, 0, perp[0], perp[1], color='b',length_includes_head=True, head_width = .02*np.diff(plt.xlim())[0], width = .01*np.diff(plt.xlim())[0])
 
 #dashed projection lines
 plt.plot([b[0],para[0]],[b[1],para[1]],linewidth=.5,color='0.5', linestyle = '--')
