@@ -12,9 +12,11 @@ w_norm = np.linalg.norm(w)
 #Calculates which of the vectors has a greater magnitude - which will allow is to calcuate Beta
 if v_norm > w_norm: 
     print(f'v_norm: {v_norm} is bigger than w_norm: {w_norm}')
-    a, b = v, w 
+    a = v 
+    b = w
 else: 
-    a, b = w, v
+    a = w
+    b = v
 
 beta = np.dot(a,b)/np.dot(a,a)
 print(f'The value of the scalar beta is {beta} (The point at which the head of the vecotr, b, is as close as possible to vecotr a)')
