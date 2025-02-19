@@ -1,0 +1,30 @@
+#%%
+import matplotlib.pyplot as plt
+import numpy as np
+from numpy import random
+
+#single vector, vector set
+V = np.array([1,3])
+#initilise scalar list
+scalars = [0]*100
+#set limitation for random number geenration
+xlim = [-4,4]
+#initialise zeros vector for coordinates to plot points
+plt_points = np.zeros((100,2))
+print(plt_points)
+
+#generate random scalars
+for i in range(len(scalars)): 
+    scalars[i] += np.random.uniform(xlim[0],xlim[1])
+#multiply scalar with 1,3 vector and plot point on graph
+for i in range(len(scalars)):
+    plt_points[i] += scalars[i]*V
+    plt.plot(plt_points[0],plt_points[1], color = 'k')
+
+plt.xlim(xlim)
+plt.ylim(xlim)
+plt.grid()
+plt.axis('equal')
+plt.show()
+
+# %%
