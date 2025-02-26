@@ -1,5 +1,6 @@
 #%%
 import numpy as np 
+from scipy.stats import pearsonr
 
 xlim = [0, 100]
 v1 = np.random.uniform(low=xlim[0], high=xlim[1], size=(100,))
@@ -58,8 +59,13 @@ for i in range(v2_cntrd_sqrd.shape[0]):
     v2_cntrd_sqrd_sum += v2_cntrd_sqrd[i]
 
 denom = (v1_cntrd_sqrd_sum**0.5)*(v2_cntrd_sqrd_sum**0.5)
-p_value = dot_v1v2/denom
-print(p_value)
+r_value = dot_v1v2/denom
+print(f'The pearson correlation coefficicient, r, calculated manually is: {r_value}')
+
+#Verification of correct calculation with pearsonr calcualtion from library 
+# Is indeed correct!!
+lib_r_value = pearsonr(v1,v2) 
+print(lib_r_value)
 
 
 
