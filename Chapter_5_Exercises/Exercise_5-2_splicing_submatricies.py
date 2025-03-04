@@ -1,0 +1,17 @@
+#%%
+import numpy as np 
+import matplotlib.pyplot as plt
+
+C = np.arange(100).reshape(10,10)
+print(C)
+
+print('\n')
+
+C1 = C[0:5,0:5] #C[x,y]
+
+plt.matshow(C)
+plt.show
+
+print(C1)
+
+# %%
