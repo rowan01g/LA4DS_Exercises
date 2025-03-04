@@ -1,8 +1,13 @@
 #%%
 import numpy as np 
 from scipy.stats import pearsonr
+#following imports are to calculate the cosine similarity
+from numpy import dot 
+from numpy.linalg import norm
 
 def pearson_calc():
+    global v1
+    global v2
     xlim = [0, 100]
     v1 = np.random.uniform(low=xlim[0], high=xlim[1], size=(100,))
     v2 = np.random.uniform(low=xlim[0], high=xlim[1], size=(100,))
@@ -70,10 +75,13 @@ def pearson_calc():
 
 def cosine_sim():
     #make dot product global then divid by product of mean centered norms
-
-
+    global v1
+    global v2
+    cos_sim = dot(v1,v2)/(norm(v1)*norm(v2))
+    print(f'The cosine similarity is {cos_sim}')
 
 pearson_calc()
+cosine_sim()
 
  
 # %%
