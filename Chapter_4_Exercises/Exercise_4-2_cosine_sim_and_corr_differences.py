@@ -3,6 +3,7 @@ import numpy as np
 from scipy.stats import pearsonr
 from numpy import dot 
 from numpy.linalg import norm
+import matplotlib.pyplot as plt
 
 v1 = np.arange(0,4)
 #[:, None] turns the single row array into a column array
@@ -33,6 +34,16 @@ for i in range(len(v3)):
     cos_sim = dot(v1,v3[i])/(norm(v1)*norm(v3[i]))
     c.append(float(cos_sim))
 print(c)
+
+plt.plot(v3_mean, r)
+plt.plot(v3_mean, c)
+
+plt.xlabel('Mean offset')
+plt.ylabel('r or c')
+plt.legend()
+plt.title('Pearson r vs Cosine Similarity, c')
+
+plt.show()
 
     
 
