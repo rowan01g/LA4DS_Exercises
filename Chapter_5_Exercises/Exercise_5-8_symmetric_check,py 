@@ -1,0 +1,22 @@
+#%%
+import numpy as np 
+
+# a matrix is symmeytric if the square matrix is equal to its transpose 
+
+A = np.ones(100).reshape(10,10)
+B = np.random.randint(low=0, high=11, size = 100).reshape(10,10)
+
+At = np.transpose(A)
+Bt = np.transpose(B)
+
+#Checks if the values of the original matricies are close in to the values of the transposed matricies
+#If lcose, matrix value is True, if not, False
+At_check = np.isclose(A, At)
+Bt_check = np.isclose(B, Bt)
+
+#Checks if all values within the isclose matricies are True
+#If all values true, np.all returns True, if all values not true, returns false
+#Therefore, np.all returning true confirms if matrix is symmetric
+print(np.all(At_check))
+print(np.all(Bt_check))
+# %%
