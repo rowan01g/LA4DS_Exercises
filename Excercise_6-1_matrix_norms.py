@@ -1,30 +1,34 @@
 #%%
 import numpy as np 
+import matplotlib.pyplot as plt
 
-#The Frobenius norm can be calculated as the Square root of the trace of the matrix times its transpose
-
-def random_matrix():
-    M = np.random.randint(low=0, high=11, size = 100).reshape(10,10)
-    return M 
-
-def calc_frob_norm(M):
-    F = (np.trace(M@M.T))**0.5
-    return F
-
-def create_frob_norm_lst():
-    frob_norm_lst = []
-    for i in range(40):
-        n = calc_frob_norm(random_matrix())*np.random.randint(low=-50, high=51)
-        frob_norm_lst.append(n)
-    return frob_norm_lst
-
-points = np.zeros(400).reshape(10,40)    
-
-for i in range(len(points)):
-    points[i:] = create_frob_norm_lst()
-
-points = points.T
-print(points)
+# experiment simulations
+scalingVals = np.linspace(0,50,40) # range of scaling parameters (0 to 50 in 40 steps)
+print(scalingVals)
+nExperiments = 10
 
 
+# initialize output
+matrixNorms = np.zeros((len(scalingVals),nExperiments))
+
+# run experiment!
+for si in range(len(scalingVals)):
+  for expi in range(nExperiments):
+
+    # generate a random scaled matrix
+    R = np.random.randn(10,10) * scalingVals[si]
+
+    # store its norm
+    matrixNorms[si,expi] = np.linalg.norm(R,'fro') # fro calculates the frobenius norm
+
+
+# plot the results!
+plt.plot(scalingVals,np.mean(matrixNorms,axis=1),'ko-')
+plt.xlabel('Matrix scalar')
+plt.ylabel('Matrix Frobenius norm')
+plt.savefig('Figure_06_07.png',dpi=300)
+plt.show()
+
+# check that norm=0 for zeros matrix
+print(matrixNorms[0,:])
 # %%
