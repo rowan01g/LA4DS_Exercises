@@ -1,4 +1,5 @@
 #%%
+import seaborn as sns 
 import numpy as np 
 import matplotlib.pyplot as plt
 """
@@ -44,6 +45,10 @@ print(f'The length of A_list is: {len(A_list)}')
 print('The ranks of the matricies in A_list is: ')
 for i in range(len(A_list)):
     print(np.linalg.matrix_rank(A_list[i]), end=" ")
+
+
+
+
 
 
 
