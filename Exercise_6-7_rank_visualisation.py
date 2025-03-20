@@ -47,21 +47,48 @@ for i in range(len(A_list)):
     print(np.linalg.matrix_rank(A_list[i]), end=" ")
 
 AB_sum = np.zeros(196).reshape(len(A_list),len(A_list))
+AB_prod = np.zeros(196).reshape(len(A_list),len(A_list))
 print(f'\n{AB_sum}')
 
 for i in range(len(A_list)):
     for j in range(len(B_list)):
         AB_sum[i,j] = np.linalg.matrix_rank(A_list[i]+B_list[j])
+        AB_prod[i,j] = np.linalg.matrix_rank(A_list[i]@B_list[j])
 
 
 print(f'\n{AB_sum}')
 
-fig, axes = plt.subplots(1, 3, figsize=(20,5))
+fig, axes = plt.subplots(1, 2, figsize=(25,10))
 
 vmin=2
 vmax=15
 
 AB_sum_hm = sns.heatmap(data=AB_sum, ax=axes[0], cmap='mako', annot=True, vmin=vmin, vmax=vmax)
+axes[0].invert_yaxis()
+
+AB_prod_hm = sns.heatmap(data=AB_prod, ax=axes[1], cmap='mako', annot=True, vmin=vmin, vmax=vmax)
+axes[1].invert_yaxis()
+
+
+tick_labels = list(range(2, 16))  # Labels from 2 to 15
+axes[0].set_xticks(np.arange(len(tick_labels)) + 0.5)  # Set tick positions
+axes[0].set_yticks(np.arange(len(tick_labels)) +0.5 ) # + 0.5 sets ticks on the squares of the grid
+axes[0].set_xticklabels(tick_labels)  # Set tick labels
+axes[0].set_yticklabels(tick_labels)
+axes[1].set_xticks(np.arange(len(tick_labels)) + 0.5)  # Set tick positions
+axes[1].set_yticks(np.arange(len(tick_labels)) +0.5 ) # + 0.5 sets ticks on the squares of the grid
+axes[1].set_xticklabels(tick_labels)  # Set tick labels
+axes[1].set_yticklabels(tick_labels)
+
+# Set axis labels
+axes[0].set_xlabel("Rank of Matrix B")
+axes[0].set_ylabel("Rank of Matrix A")
+axes[1].set_xlabel("Rank of Matrix B")
+axes[1].set_ylabel("Rank of Matrix A")
+
+#set axis titles 
+axes[0].set_title("Rank of A+B", fontsize=14)
+axes[1].set_title("Rank of A@B", fontsize=14)
 
 
 
