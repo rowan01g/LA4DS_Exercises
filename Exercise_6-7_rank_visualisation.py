@@ -46,6 +46,22 @@ print('The ranks of the matricies in A_list is: ')
 for i in range(len(A_list)):
     print(np.linalg.matrix_rank(A_list[i]), end=" ")
 
+AB_sum = np.zeros(196).reshape(len(A_list),len(A_list))
+print(f'\n{AB_sum}')
+
+for i in range(len(A_list)):
+    for j in range(len(B_list)):
+        AB_sum[i,j] = np.linalg.matrix_rank(A_list[i]+B_list[j])
+
+
+print(f'\n{AB_sum}')
+
+fig, axes = plt.subplots(1, 3, figsize=(20,5))
+
+vmin=2
+vmax=15
+
+AB_sum_hm = sns.heatmap(data=AB_sum, ax=axes[0], cmap='mako', annot=True, vmin=vmin, vmax=vmax)
 
 
 
